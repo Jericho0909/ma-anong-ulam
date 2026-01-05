@@ -6,11 +6,18 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        FGulay: "#16A34A",
+      },
       fontFamily: {
         cabin: ['"Cabin"', 'sans-serif'],
       }
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addVariant }) {
+      addVariant('hoverable', '@media (hover: hover) and (pointer: fine)');
+    },
+  ],
 }
 

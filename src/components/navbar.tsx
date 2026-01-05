@@ -1,5 +1,5 @@
 import type { Props } from "../types/model"
-const Header = ({ children }: Props) => {
+const Navbar = ({ children }: Props) => {
     return (
         <>
             {children}
@@ -7,4 +7,4 @@ const Header = ({ children }: Props) => {
     )
 }
 
-export default Header
+export default Navbar
