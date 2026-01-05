@@ -1,12 +1,12 @@
 import { Routes, Route } from "react-router-dom";
-import UlamPage from "./pages/ulampage";
+import UlamHomePage from "./pages/ulamhomepage";
 function App() {
   return (
     <>
       <Routes>
         <Route
           path="/"
-          element={<UlamPage/>}
+          element={<UlamHomePage/>}
         />
       </Routes>
     </>
