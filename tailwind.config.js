@@ -11,6 +11,8 @@ export default {
       },
       fontFamily: {
         cabin: ['"Cabin"', 'sans-serif'],
+        quicksand: ['"Quicksand"', 'sans-serif'],
+        figtree: ['"Figtree"', 'sans-serif']
       }
     },
   },
