@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import UlamHomePage from "./pages/ulamhomepage";
+import MgaUlamPage from "./pages/mgaulampage";
 import { WindowSizeProvider } from "./context/windowsizeContext";
 function App() {
   return (
@@ -9,6 +10,10 @@ function App() {
           <Route
             path="/"
             element={<UlamHomePage/>}
+          />
+          <Route
+            path="/mga-ulam/"
+            element={<MgaUlamPage/>}
           />
         </Routes>
       </WindowSizeProvider>

@@ -1,6 +1,24 @@
+import { useState, useEffect } from "react";
+import useSectionInView from "../../hooks/useIntersectionObserver";
+import { motion } from "framer-motion";
+
 import type { UlamItems } from "../../types/model"
 
-const Home = () => {
+interface HomeProps {
+    setActiveSection: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const Home = ({ setActiveSection }: HomeProps) => {
+    const { ref, isVisible } = useSectionInView()
+    const [ hasAnimated, setHasAnimated ] = useState<boolean>(false)
+
+    useEffect(() => {
+        if(isVisible){
+            setActiveSection("home")
+            setHasAnimated(true)
+            history.replaceState(null, "", "#home")
+        }
+    }, [isVisible])
     
     const Ulams: UlamItems[] = [
         {name: "Adobo", style: "rotate-45"},
@@ -19,18 +37,23 @@ const Home = () => {
     ]
 
     return (
-        <section
+        <motion.section 
             id="home"
-            className="grid grid-cols-3 lg:grid-cols-4 gap-1 w-[100vw] h-[85svh] xl:h-[80svh] p-5  place-items-center mb-[5rem]"
-        >
+            ref={ref}
+            initial={{ opacity: 0, y: 50 }}
+            animate={hasAnimated ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="grid grid-cols-3 lg:grid-cols-4 gap-1 w-[100vw] place-items-center mb-[10rem] scroll-mt-32 h-[85svh] sm:h-[86svh] md:h-[86svh] lg:h-[84svh] xl:h-[85svh] overflow-hidden"
+        >  
             {Ulams.map((ulam, index) => (
                 <p 
                     key={index}
-                    className={`flex items-center justify-center w-auto h-[3rem] p-1 font-quicksand font-semibold text-[clamp(1.05rem,2vw,2rem)] [text-shadow:1px_1px_4px_rgba(0,0,0,0.5)] ${ulam.style}`}>
+                    className={`flex items-center justify-center w-auto h-[3rem] p-1 font-quicksand font-semibold text-[clamp(1.05rem,2vw,2rem)] [text-shadow:1px_1px_4px_rgba(0,0,0,0.5)] ${ulam.style}`}
+                >
                     {ulam.name}
                 </p>
             ))}
-        </section>
+        </motion.section>
         
     )
 }
