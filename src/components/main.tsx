@@ -6,7 +6,7 @@ interface MainProps {
 
 const Main = ({ children }: MainProps) => {
     return (
-        <main className="flex items-center justify-start flex-col w-full min-h-[80svh] mt-[6rem] overflow-hidden">
+        <main className="flex items-center justify-start flex-col w-full min-h-[80svh] mt-[6.50rem] overflow-hidden">
             {children}
             
         </main>

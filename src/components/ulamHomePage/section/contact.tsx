@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import useSectionInView from "../../hooks/useIntersectionObserver";
+import useSectionInView from "../../../hooks/useIntersectionObserver";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook } from '@fortawesome/free-brands-svg-icons'

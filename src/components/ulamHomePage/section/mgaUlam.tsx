@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import useSectionInView from "../../hooks/useIntersectionObserver";
+import useSectionInView from "../../../hooks/useIntersectionObserver";
 import { motion } from "framer-motion";
 import { MoveRight } from 'lucide-react';
 

@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import useSectionInView from "../../hooks/useIntersectionObserver";
+import useSectionInView from "../../../hooks/useIntersectionObserver";
 import { motion } from "framer-motion";
 
-import type { UlamItems } from "../../types/model"
+import type { UlamItems } from "../../../types/model";
 
 interface HomeProps {
     setActiveSection: React.Dispatch<React.SetStateAction<string>>;

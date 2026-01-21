@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import useSectionInView from "../../hooks/useIntersectionObserver";
+import useSectionInView from "../../../hooks/useIntersectionObserver";
 import { motion } from "framer-motion";
 
 interface AboutProps {

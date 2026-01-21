@@ -1,0 +1,124 @@
+{
+  "mgaUlam": [
+    {
+      "id": 1,
+      "name": "Adobong Manok",
+      "description": "Simpleng lutong bahay na paborito ng pamilya",
+      "ingredients": [
+        "manok",
+        "toyo",
+        "suka",
+        "bawang",
+        "paminta",
+        "dahon ng laurel"
+      ],
+      "optionalIngredients": [
+        "patatas",
+        "asukal"
+      ],
+      "difficulty": "madali",
+      "cookTime": 45,
+      "image": "https://res.cloudinary.com/daxhmcpkq/image/upload/v1764650590/qqalcfat72ufywzvkfwh.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Sinigang na Baboy",
+      "description": "Maasim na sabaw na paborito sa lutong bahay",
+      "mainIngredient": "baboy",
+      "ingredients": [
+        "baboy",
+        "sampalok",
+        "sibuyas",
+        "kamatis",
+        "labanos",
+        "sitaw",
+        "kangkong",
+        "siling pangsigang",
+        "asin"
+      ],
+      "optionalIngredients": [
+        "gabi",
+        "okra",
+        "siling haba"
+      ],
+      "cookTime": 60,
+      "difficulty": "madali",
+      "image": "https://res.cloudinary.com/daxhmcpkq/image/upload/v1737003423/avjj4y5gdrqjysl17yuy.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Tinolang Manok",
+      "description": "Malinamnam na sabaw na may luya, paboritong lutong bahay ni nanay",
+      "mainIngredient": "manok",
+      "ingredients": [
+        "manok",
+        "luya",
+        "sibuyas",
+        "bawang",
+        "papaya",
+        "dahon ng sili",
+        "tubig",
+        "patis",
+        "asin"
+      ],
+      "optionalIngredients": [
+        "sayote",
+        "malunggay",
+        "siling haba"
+      ],
+      "cookTime": 45,
+      "difficulty": "madali",
+      "image": "https://res.cloudinary.com/daxhmcpkq/image/upload/v1744072588/glb0tsjia9xn4j2lomkl.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Lumpiang Shanghai",
+      "description": "Malutong na pritong lumpia na paborito sa handaan",
+      "mainIngredient": "baboy",
+      "ingredients": [
+        "giniling na baboy",
+        "balat ng lumpia",
+        "sibuyas",
+        "bawang",
+        "itlog",
+        "karot",
+        "asin",
+        "paminta",
+        "mantika"
+      ],
+      "optionalIngredients": [
+        "spring onions",
+        "togue",
+        "oyster sauce"
+      ],
+      "cookTime": 30,
+      "difficulty": "madali",
+      "image": "https://res.cloudinary.com/daxhmcpkq/image/upload/v1744076334/usdaw3ryx1x626hdtq77.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Dinuguan",
+      "description": "Maanghang at malinamnam na lutong bahay na gawa sa dugo ng baboy",
+      "mainIngredient": "baboy",
+      "ingredients": [
+        "laman ng baboy",
+        "lamang-loob ng baboy",
+        "dugo ng baboy",
+        "sibuyas",
+        "bawang",
+        "siling haba",
+        "suka",
+        "paminta",
+        "asin"
+      ],
+      "optionalIngredients": [
+        "luya",
+        "dahon ng laurel",
+        "siling labuyo"
+      ],
+      "cookTime": 50,
+      "difficulty": "katamtaman",
+      "image": "https://res.cloudinary.com/daxhmcpkq/image/upload/v1744086940/vbbuucgytnuowwzy60n4.jpg"
+    }
+  ]
+}
