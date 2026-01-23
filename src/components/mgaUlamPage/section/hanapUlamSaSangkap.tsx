@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from 'react';
-import MgaSangkapNaMeronKaContext from '../../../context/mgaSangkapNaMeronKa';
-import SearchContext from '../../../context/searchContext';
+import SearchModeContext from '../../../context/searchModeContext';
+
 import type { DataList, UlamTypes } from '../../../types/model';
 import { X } from 'lucide-react';
 
@@ -13,8 +13,12 @@ interface HanapUlamSaSangkapProps {
     ulamContainerRef: React.RefObject<HTMLDivElement | null>;
 }
 const HanapUlamSaSangkap = ({ mgaSangkap, mgaUlam, setAngNaHanapNaUlam, setMayHinahanapUlam, setResetUlam, ulamContainerRef }: HanapUlamSaSangkapProps) => {
-    const { mgaSangkapNaMeronKa, setMgaSangkapNaMeronKa } = useContext(MgaSangkapNaMeronKaContext)
-    const { setSearch } = useContext(SearchContext)
+    const { setSearchMode, 
+        setSearch, 
+        mgaSangkapNaMeronKa, 
+        setMgaSangkapNaMeronKa,
+        setGinamitNaSangkap,    
+    } = useContext(SearchModeContext)
     const [ scrollTrigger, setScrollTrigger ] = useState(0)
 
     const pwedeLutuinUlam = () => {
@@ -27,8 +31,10 @@ const HanapUlamSaSangkap = ({ mgaSangkap, mgaUlam, setAngNaHanapNaUlam, setMayHi
     }
 
     const hanldleHanap = (): void => {
+        setSearchMode("sangkap")
         setResetUlam(false)
         setMayHinahanapUlam(true)
+        setGinamitNaSangkap(mgaSangkapNaMeronKa)
         pwedeLutuinUlam()
         setSearch("")
         setScrollTrigger((prev) => prev + 1)

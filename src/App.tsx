@@ -4,8 +4,7 @@ import MgaUlamPage from "./pages/mgaulampage";
 import DetalyeNgUlam from "./pages/detalyengulampage";
 import { FetchDataProvider } from "./context/fetchDatabaseContext";
 import { WindowSizeProvider } from "./context/windowsizeContext";
-import { SearchProvider } from "./context/searchContext";
-import { MgaSangkapNaMeronKaProvider } from "./context/mgaSangkapNaMeronKa";
+import { SearchModeProvider } from "./context/searchModeContext";
 function App() {
   return (
     <>
@@ -19,11 +18,9 @@ function App() {
             <Route
               path="/mga-ulam/"
               element={
-                <MgaSangkapNaMeronKaProvider>
-                  <SearchProvider>
-                    <MgaUlamPage/>
-                  </SearchProvider>
-                </MgaSangkapNaMeronKaProvider>
+                <SearchModeProvider>
+                  <MgaUlamPage/>
+                </SearchModeProvider>
               }
             />
             <Route

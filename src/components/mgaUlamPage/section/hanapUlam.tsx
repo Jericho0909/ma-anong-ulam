@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect, useContext } from 'react';
-import SearchContext from '../../../context/searchContext';
-import MgaSangkapNaMeronKaContext from '../../../context/mgaSangkapNaMeronKa';
+import SearchModeContext from '../../../context/searchModeContext';
 import MgaMungkahingUlam from '../mgaMungkahingUlam';
 import { useDebounce } from "@uidotdev/usehooks";
 import { UtensilsCrossed } from 'lucide-react';
@@ -16,8 +15,12 @@ interface HanapUlamProps {
 }
 
 const HanapUlam = ({ mgaUlam, setAngNaHanapNaUlam, setMayHinahanapUlam, setResetUlam, ulamContainerRef }: HanapUlamProps ) => {
-    const { search, setSearch } = useContext(SearchContext)
-    const { setMgaSangkapNaMeronKa } = useContext(MgaSangkapNaMeronKaContext)
+    const { setSearchMode, 
+        search, 
+        setSearch, 
+        setMgaSangkapNaMeronKa,
+        setAngUlamNaHinahanap
+    } = useContext(SearchModeContext)
     const [ suggestionSearch, setSuggestionSearch ] = useState<string>("")
     const [ focus, setFocus ] = useState<boolean>(false)
     const [ scrollTrigger, setScrollTrigger ] = useState(0)
@@ -35,28 +38,29 @@ const HanapUlam = ({ mgaUlam, setAngNaHanapNaUlam, setMayHinahanapUlam, setReset
 
     const handleHanap = (angHinahanap: string): void => {
         const safeSearch: string = angHinahanap.trim().toLowerCase()
+        setAngUlamNaHinahanap(safeSearch)
+        setSearchMode("text")
         setResetUlam(false)
         setMayHinahanapUlam(true)
         setAngNaHanapNaUlam(hanapinUlam(safeSearch))
-        setIpakitaAngMinungkahingUlam(false)
         setMgaSangkapNaMeronKa([])
         setScrollTrigger((prev) => prev + 1)
+        setActiveIndex(-1)
+        setSuggestionSearch(mgaMinungkahingUlam[activeIndex].name)
     }
 
     useEffect(() => {
         if(debouncedSearchTerm !== ""){
-            setIpakitaAngMinungkahingUlam(true)
             const result = hanapinUlam(filterSearch)
             setMgaMinungkahingUlam(result)
-            setActiveIndex(-1)
         } 
         else{
             setResetUlam(true)
             setMayHinahanapUlam(false)
-            setIpakitaAngMinungkahingUlam(false)
             setMgaMinungkahingUlam([])
-            setActiveIndex(-1)
+            setSuggestionSearch("")
         }
+        setActiveIndex(-1)
     }, [debouncedSearchTerm, setResetUlam])
 
     useEffect(() => {
@@ -67,7 +71,10 @@ const HanapUlam = ({ mgaUlam, setAngNaHanapNaUlam, setMayHinahanapUlam, setReset
 
     useEffect(() => {
         if(scrollTrigger > 0) {
-            ulamContainerRef.current?.scrollIntoView({ behavior: "smooth" })
+            ulamContainerRef.current?.scrollIntoView({ 
+                behavior: "smooth",
+                block: "nearest"
+            })
         }
     }, [scrollTrigger])
 
@@ -75,7 +82,6 @@ const HanapUlam = ({ mgaUlam, setAngNaHanapNaUlam, setMayHinahanapUlam, setReset
         function handleClickOutside(event: MouseEvent) {
             if(searchBoxRef.current && !searchBoxRef.current.contains(event.target as Node)){
                 setIpakitaAngMinungkahingUlam(false)
-                setActiveIndex(0)
             }
         }
 
@@ -108,6 +114,7 @@ const HanapUlam = ({ mgaUlam, setAngNaHanapNaUlam, setMayHinahanapUlam, setReset
                             type="text"
                             spellCheck={false}
                             value={search}
+                            placeholder="Search...."
                             onChange={(e) => {
                                 setSuggestionSearch(e.target.value)
                                 setSearch(e.target.value)
@@ -115,9 +122,11 @@ const HanapUlam = ({ mgaUlam, setAngNaHanapNaUlam, setMayHinahanapUlam, setReset
                             className="font-figtree font-medium w-full border border-green-500 focus:border border-none"
                             onFocus={() => {
                                 setFocus(true)
+                                setIpakitaAngMinungkahingUlam(true)
                             }}
                             onBlur={() => {
                                 setFocus(false)
+                                setIpakitaAngMinungkahingUlam(false)
                             }}
                             onKeyDown={(e) => {
                                 if (e.key === "Enter") {
@@ -148,8 +157,6 @@ const HanapUlam = ({ mgaUlam, setAngNaHanapNaUlam, setMayHinahanapUlam, setReset
                                     })
                                 }
                             }}
-
-
                         />
                     </div>
                     <button
@@ -167,6 +174,7 @@ const HanapUlam = ({ mgaUlam, setAngNaHanapNaUlam, setMayHinahanapUlam, setReset
                         setIpakitaAngMinungkahingUlam={setIpakitaAngMinungkahingUlam}
                         activeIndex={activeIndex}
                         setSearch={setSearch}
+                        debouncedSearchTerm={debouncedSearchTerm}
                     />
                 )}
             </section>

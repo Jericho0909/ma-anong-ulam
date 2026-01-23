@@ -5,9 +5,10 @@ interface MgaMungkahingUlamProps {
     setIpakitaAngMinungkahingUlam: React.Dispatch<React.SetStateAction<boolean>>;
     activeIndex: number;
     setSearch: React.Dispatch<React.SetStateAction<string>>;
+    debouncedSearchTerm: string;
 }
 
-const MgaMungkahingUlam = ({ mgaMinungkahingUlam, handleHanap, setIpakitaAngMinungkahingUlam, activeIndex, setSearch }: MgaMungkahingUlamProps) => {
+const MgaMungkahingUlam = ({ mgaMinungkahingUlam, handleHanap, setIpakitaAngMinungkahingUlam, activeIndex, setSearch, debouncedSearchTerm }: MgaMungkahingUlamProps) => {
 
     return(
         <div 
@@ -22,9 +23,17 @@ const MgaMungkahingUlam = ({ mgaMinungkahingUlam, handleHanap, setIpakitaAngMinu
         >
             {mgaMinungkahingUlam.length === 0
                 ? (
-                    <p className="font-quicksand font-medium text-sm">
-                        Walang nahanap para sa iyong hinanap.
-                    </p>
+                    debouncedSearchTerm === ""
+                    ? (
+                        <p className="font-quicksand font-medium text-sm">
+                            Anong ulam gusto mo?
+                        </p>
+                    )
+                    : (
+                        <p className="font-quicksand font-medium text-sm">
+                            Wala pang ganyang ulam sa ref ko.
+                        </p>
+                    )
                 )
                 : (
                     <ul className="w-full h-full">
