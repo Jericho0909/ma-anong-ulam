@@ -1,43 +1,87 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext, useRef } from "react";
+import { useSearchParams } from "react-router-dom";
 import SearchModeContext from "../../../context/searchModeContext";
+import UlamResultContext from "../../../context/ulamResultContext";
 import ItemCard from "../../itemcard";
 import type { UlamTypes, DataList } from "../../../types/model"
 import { X } from 'lucide-react';
 interface MgaUlamProps {
     mgaUlam: DataList<any>;
-    angNaHanapNaUlam: UlamTypes[];
-    mayHinahanapNaUlam: boolean;
-    resetUlam: boolean;
+
     ulamContainerRef: React.RefObject<HTMLDivElement | null>
 }
 
-const MgaUlam = ({ mgaUlam, angNaHanapNaUlam, mayHinahanapNaUlam, resetUlam, ulamContainerRef }: MgaUlamProps) => {
-    const { searchMode, 
-        setSearch, 
+const MgaUlam = ({ mgaUlam,  ulamContainerRef }: MgaUlamProps) => {
+    const { angNaHanapNaUlam,
+        mayHinahanapNaUlam,
+        setMayHinahanapUlam,
+        resetUlam,
+        setResetUlam
+    } = useContext(UlamResultContext)
+    const { setSearch,
+        setSuggestionSearch,
         setMgaSangkapNaMeronKa,
         angUlamNaHinahanp,
-        ginamitNaSangkap
+        setAngUlamNaHinahanap,
+        ginamitNaSangkap,
+        setGinamitNaSangkap
     } = useContext(SearchModeContext)
+    const [ searchParam, setSearchParams ] = useSearchParams()
     const [ ulam, setUlam ] = useState< UlamTypes[]>(mgaUlam.data)
     const [ isDefaultUlams, setIsDefaultUlams ] = useState<boolean>(true)
+    const ulamRefs = useRef<Record<string, HTMLDivElement | null>>({})
+    const searchMode = sessionStorage.getItem("searchMode")
+    const searchParams = sessionStorage.getItem("lastSearch")
+    const sangkapParams = sessionStorage.getItem("lastSangkap")
+    const lastUlamsList = sessionStorage.getItem("ulamList")
+    const parsedUSangkapt = sangkapParams ? JSON.parse(sangkapParams) : []
+    const parsedUlamsList = lastUlamsList ? JSON.parse(lastUlamsList) : []
 
-    const hanldeResetUlams = () => {
+    const hanldeDefaultUlams = () => {
         setIsDefaultUlams(true)
         setSearch("")
+        setSuggestionSearch("")
         setMgaSangkapNaMeronKa([])
+        setMayHinahanapUlam(false)
+        setSearchParams({search: ""})
         setUlam(mgaUlam.data)
+        sessionStorage.removeItem("lastSearch")
+        sessionStorage.removeItem("lastSangkap")
+        sessionStorage.removeItem("ulamList")
     }
 
     useEffect(() => {
+        setSearchParams(searchMode === "text" 
+            ? { search: searchParams || ""}
+            : {sangkap: parsedUSangkapt || []}
+        )
+        if(parsedUlamsList.length >=1 && angNaHanapNaUlam.length === 0 && !mayHinahanapNaUlam){
+            setUlam(parsedUlamsList)
+            if(searchMode === "text"){
+                setSearch(searchParams || "")
+                setSuggestionSearch(searchParams || "")
+                setAngUlamNaHinahanap(searchParams || "")
+            }
+
+            if(searchMode === "sangkap"){
+                const sangkap = searchParam.getAll("sangkap")
+                setMgaSangkapNaMeronKa(sangkap)
+                setGinamitNaSangkap(sangkap)
+
+            }
+            setResetUlam(false)
+            setIsDefaultUlams(false)
+        }
+
         if(resetUlam){
-            setIsDefaultUlams(true)
-            setUlam(mgaUlam.data)
+            hanldeDefaultUlams()
             return
         }
 
         if(mayHinahanapNaUlam){
             setIsDefaultUlams(false)
             setUlam(angNaHanapNaUlam)
+            return
         }
 
     }, [angNaHanapNaUlam, resetUlam, mayHinahanapNaUlam])
@@ -68,7 +112,7 @@ const MgaUlam = ({ mgaUlam, angNaHanapNaUlam, mayHinahanapNaUlam, resetUlam, ula
                             hoverable:hover:text-red-600
                             active:scale-95
                         "
-                        onClick={() => hanldeResetUlams()}
+                        onClick={() => hanldeDefaultUlams()}
                    >
                         <X
                             size={16}
@@ -78,7 +122,7 @@ const MgaUlam = ({ mgaUlam, angNaHanapNaUlam, mayHinahanapNaUlam, resetUlam, ula
                 </div>
             )}
             
-            {(angNaHanapNaUlam.length === 0 && mayHinahanapNaUlam)
+            {(angNaHanapNaUlam.length === 0 && mayHinahanapNaUlam && parsedUlamsList.length === 0)
                 ? (
                     <div className="flex justify-center items-center w-full h-[50svh]">
                         <p className="font-quicksand font-medium text-sm">
@@ -92,6 +136,7 @@ const MgaUlam = ({ mgaUlam, angNaHanapNaUlam, mayHinahanapNaUlam, resetUlam, ula
                             <ItemCard
                                 key={ulam.id}
                                 ulam={ulam}
+                                ulamRefs={ulamRefs}
                             />
                         ))}
                     </div>

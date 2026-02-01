@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect, useContext } from 'react';
+import { useSearchParams } from "react-router-dom";
 import SearchModeContext from '../../../context/searchModeContext';
+import UlamResultContext from '../../../context/ulamResultContext';
 import MgaMungkahingUlam from '../mgaMungkahingUlam';
 import { useDebounce } from "@uidotdev/usehooks";
 import { UtensilsCrossed } from 'lucide-react';
@@ -8,20 +10,22 @@ import type { DataList, UlamTypes } from '../../../types/model';
 
 interface HanapUlamProps {
     mgaUlam: DataList<any>;
-    setAngNaHanapNaUlam: React.Dispatch<React.SetStateAction<UlamTypes[]>>;
-    setMayHinahanapUlam: React.Dispatch<React.SetStateAction<boolean>>;
-    setResetUlam: React.Dispatch<React.SetStateAction<boolean>>;
     ulamContainerRef: React.RefObject<HTMLDivElement | null>;
 }
 
-const HanapUlam = ({ mgaUlam, setAngNaHanapNaUlam, setMayHinahanapUlam, setResetUlam, ulamContainerRef }: HanapUlamProps ) => {
-    const { setSearchMode, 
-        search, 
-        setSearch, 
+const HanapUlam = ({ mgaUlam, ulamContainerRef }: HanapUlamProps ) => {
+    const { setAngNaHanapNaUlam,
+        setMayHinahanapUlam,
+        setResetUlam,
+    } = useContext(UlamResultContext)
+    const {  search, 
+        setSearch,
+        suggestionSearch,
+        setSuggestionSearch,
         setMgaSangkapNaMeronKa,
         setAngUlamNaHinahanap
     } = useContext(SearchModeContext)
-    const [ suggestionSearch, setSuggestionSearch ] = useState<string>("")
+    const [ , setSearchParams ] = useSearchParams()
     const [ focus, setFocus ] = useState<boolean>(false)
     const [ scrollTrigger, setScrollTrigger ] = useState(0)
     const [ ipakitaAngMinungkahingUlam, setIpakitaAngMinungkahingUlam ] = useState<boolean>(false)
@@ -31,6 +35,8 @@ const HanapUlam = ({ mgaUlam, setAngNaHanapNaUlam, setMayHinahanapUlam, setReset
     const searchBoxRef = useRef<HTMLDivElement | null>(null)
     const debouncedSearchTerm = useDebounce(suggestionSearch, 300)
     const filterSearch = debouncedSearchTerm.trim().toLowerCase()
+    const searchMode = sessionStorage.getItem("searchMode")
+
 
     const hanapinUlam = (hanap: string): UlamTypes[] => {
         return mgaUlam.data.filter((ulam) => ulam.name.toLowerCase().includes(hanap))
@@ -39,14 +45,18 @@ const HanapUlam = ({ mgaUlam, setAngNaHanapNaUlam, setMayHinahanapUlam, setReset
     const handleHanap = (angHinahanap: string): void => {
         const safeSearch: string = angHinahanap.trim().toLowerCase()
         setAngUlamNaHinahanap(safeSearch)
-        setSearchMode("text")
         setResetUlam(false)
         setMayHinahanapUlam(true)
         setAngNaHanapNaUlam(hanapinUlam(safeSearch))
         setMgaSangkapNaMeronKa([])
         setScrollTrigger((prev) => prev + 1)
         setActiveIndex(-1)
-        setSuggestionSearch(mgaMinungkahingUlam[activeIndex].name)
+        if(activeIndex >= 0){
+            setSuggestionSearch(mgaMinungkahingUlam[activeIndex].name)
+        }
+        sessionStorage.setItem("searchMode", "text")
+        sessionStorage.setItem("lastSearch", safeSearch)
+        sessionStorage.setItem("ulamList", JSON.stringify(hanapinUlam(safeSearch)))
     }
 
     useEffect(() => {
@@ -55,17 +65,23 @@ const HanapUlam = ({ mgaUlam, setAngNaHanapNaUlam, setMayHinahanapUlam, setReset
             setMgaMinungkahingUlam(result)
         } 
         else{
-            setResetUlam(true)
+            if(searchMode === "text"){
+                setResetUlam(true)
+                sessionStorage.setItem("searchMode", "")
+            }
             setMayHinahanapUlam(false)
             setMgaMinungkahingUlam([])
             setSuggestionSearch("")
+            
         }
+        
         setActiveIndex(-1)
     }, [debouncedSearchTerm, setResetUlam])
 
     useEffect(() => {
         if (activeIndex >= 0 && mgaMinungkahingUlam[activeIndex]) {
             setSearch(mgaMinungkahingUlam[activeIndex].name)
+            setSearchParams({search: mgaMinungkahingUlam[activeIndex].name})
         }
     }, [activeIndex])
 
@@ -77,6 +93,7 @@ const HanapUlam = ({ mgaUlam, setAngNaHanapNaUlam, setMayHinahanapUlam, setReset
             })
         }
     }, [scrollTrigger])
+
 
     useEffect(() => {
         function handleClickOutside(event: MouseEvent) {
@@ -90,6 +107,7 @@ const HanapUlam = ({ mgaUlam, setAngNaHanapNaUlam, setMayHinahanapUlam, setReset
             document.removeEventListener("mousedown", handleClickOutside)
         }
     }, [])
+    
 
     return(
         <>
@@ -118,6 +136,7 @@ const HanapUlam = ({ mgaUlam, setAngNaHanapNaUlam, setMayHinahanapUlam, setReset
                             onChange={(e) => {
                                 setSuggestionSearch(e.target.value)
                                 setSearch(e.target.value)
+                                setSearchParams({ search: e.target.value })
                             }}
                             className="font-figtree font-medium w-full border border-green-500 focus:border border-none"
                             onFocus={() => {
@@ -126,7 +145,6 @@ const HanapUlam = ({ mgaUlam, setAngNaHanapNaUlam, setMayHinahanapUlam, setReset
                             }}
                             onBlur={() => {
                                 setFocus(false)
-                                setIpakitaAngMinungkahingUlam(false)
                             }}
                             onKeyDown={(e) => {
                                 if (e.key === "Enter") {
@@ -134,6 +152,7 @@ const HanapUlam = ({ mgaUlam, setAngNaHanapNaUlam, setMayHinahanapUlam, setReset
                                     setFocus(false)
                                     inputRef.current?.blur()
                                     setActiveIndex(-1)
+                                    setIpakitaAngMinungkahingUlam(false)
                                     return
                                 }
 
@@ -175,6 +194,7 @@ const HanapUlam = ({ mgaUlam, setAngNaHanapNaUlam, setMayHinahanapUlam, setReset
                         activeIndex={activeIndex}
                         setSearch={setSearch}
                         debouncedSearchTerm={debouncedSearchTerm}
+                        setSearchParams={setSearchParams}
                     />
                 )}
             </section>

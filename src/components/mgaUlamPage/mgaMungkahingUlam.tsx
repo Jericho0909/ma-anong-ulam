@@ -1,3 +1,4 @@
+import type { SetURLSearchParams } from "react-router-dom";
 import type { UlamTypes } from "../../types/model"
 interface MgaMungkahingUlamProps {
     mgaMinungkahingUlam: UlamTypes[];
@@ -6,14 +7,15 @@ interface MgaMungkahingUlamProps {
     activeIndex: number;
     setSearch: React.Dispatch<React.SetStateAction<string>>;
     debouncedSearchTerm: string;
+    setSearchParams: SetURLSearchParams
 }
 
-const MgaMungkahingUlam = ({ mgaMinungkahingUlam, handleHanap, setIpakitaAngMinungkahingUlam, activeIndex, setSearch, debouncedSearchTerm }: MgaMungkahingUlamProps) => {
+const MgaMungkahingUlam = ({ mgaMinungkahingUlam, handleHanap, setIpakitaAngMinungkahingUlam, activeIndex, setSearch, debouncedSearchTerm, setSearchParams }: MgaMungkahingUlamProps) => {
 
     return(
         <div 
             className={`p-1 absolute top-full w-[98%] h-[15rem] bg-white
-            rounded-xl shadow-lg border border-gray-100 z-50
+            rounded-xl shadow-lg border border-gray-100 z-10
             overflow-y-auto
                 ${mgaMinungkahingUlam.length === 0
                     ? "flex justify-center items-center"
@@ -48,6 +50,7 @@ const MgaMungkahingUlam = ({ mgaMinungkahingUlam, handleHanap, setIpakitaAngMinu
                                     handleHanap(ulam.name)
                                     setSearch(ulam.name)
                                     setIpakitaAngMinungkahingUlam(false)
+                                    setSearchParams({ search: ulam.name })
                                 }}
                             >
                                 {ulam.name}

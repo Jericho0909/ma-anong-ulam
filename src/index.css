@@ -46,5 +46,14 @@ textarea {
   100% {background-position:calc(1*100%/3) 50%,calc(0*100%/3) calc(50% + calc(var(--s)/8)),calc(0*100%/3) calc(50% - calc(var(--s)/8)), calc(2*100%/3) 50%,calc(3*100%/3) calc(50% + calc(var(--s)/8)),calc(3*100%/3) calc(50% - calc(var(--s)/8))}
 }
 
+.ulam-active {
+  position: relative;
+  background: #fff6e5;
+  border-color: #ffb703;
+  box-shadow:
+    0 8px 18px rgba(255, 183, 3, 0.35),
+    0 0 0 2px rgba(255, 183, 3, 0.25);
+}
+
 
 

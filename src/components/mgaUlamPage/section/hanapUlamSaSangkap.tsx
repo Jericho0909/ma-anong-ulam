@@ -1,24 +1,27 @@
 import { useContext, useState, useEffect } from 'react';
+import { useSearchParams } from "react-router-dom";
 import SearchModeContext from '../../../context/searchModeContext';
-
-import type { DataList, UlamTypes } from '../../../types/model';
+import UlamResultContext from '../../../context/ulamResultContext';
+import type { DataList } from '../../../types/model';
 import { X } from 'lucide-react';
 
 interface HanapUlamSaSangkapProps {
     mgaUlam: DataList<any>;
     mgaSangkap: string[];
-    setAngNaHanapNaUlam:  React.Dispatch<React.SetStateAction<UlamTypes[]>>;
-    setMayHinahanapUlam: React.Dispatch<React.SetStateAction<boolean>>;
-    setResetUlam: React.Dispatch<React.SetStateAction<boolean>>;
     ulamContainerRef: React.RefObject<HTMLDivElement | null>;
 }
-const HanapUlamSaSangkap = ({ mgaSangkap, mgaUlam, setAngNaHanapNaUlam, setMayHinahanapUlam, setResetUlam, ulamContainerRef }: HanapUlamSaSangkapProps) => {
-    const { setSearchMode, 
-        setSearch, 
+const HanapUlamSaSangkap = ({ mgaSangkap, mgaUlam, ulamContainerRef }: HanapUlamSaSangkapProps) => {
+    const { setAngNaHanapNaUlam,
+        setMayHinahanapUlam,
+        setResetUlam,
+    } = useContext(UlamResultContext)
+    const { setSearch, 
+        setSuggestionSearch,
         mgaSangkapNaMeronKa, 
         setMgaSangkapNaMeronKa,
         setGinamitNaSangkap,    
     } = useContext(SearchModeContext)
+     const [ , setSearchParams ] = useSearchParams()
     const [ scrollTrigger, setScrollTrigger ] = useState(0)
 
     const pwedeLutuinUlam = () => {
@@ -28,30 +31,44 @@ const HanapUlamSaSangkap = ({ mgaSangkap, mgaUlam, setAngNaHanapNaUlam, setMayHi
             return matchCount >= 3
         })
         setAngNaHanapNaUlam(mgaPwedeLutuin)
+        sessionStorage.setItem("searchMode", "sangkap")
+        sessionStorage.setItem("lastSangkap", JSON.stringify(mgaSangkapNaMeronKa))
+        sessionStorage.setItem("ulamList", JSON.stringify(mgaPwedeLutuin))
     }
 
     const hanldleHanap = (): void => {
-        setSearchMode("sangkap")
         setResetUlam(false)
         setMayHinahanapUlam(true)
         setGinamitNaSangkap(mgaSangkapNaMeronKa)
         pwedeLutuinUlam()
         setSearch("")
+        setSuggestionSearch("")
         setScrollTrigger((prev) => prev + 1)
+        setSearchParams({
+            sangkap: mgaSangkapNaMeronKa
+        })
     }
 
     const hanldeDagdagSangkap = (sangkap: string): void => {
         const bagongMgaSangkap = [...mgaSangkapNaMeronKa, sangkap]
         setMgaSangkapNaMeronKa(bagongMgaSangkap)
+        setSearchParams({
+            sangkap: bagongMgaSangkap
+        })
+        
     }
 
     const handleTanggalSangkap = (index: number): void => {
         if(index === 0){
             setResetUlam(true)
+            sessionStorage.setItem("searchMode", "")
         }
         const bagongMgaSangkap = mgaSangkapNaMeronKa.filter((_, i) => i !== index)
         setMgaSangkapNaMeronKa(bagongMgaSangkap)
         setMayHinahanapUlam(false)
+        setSearchParams({
+            sangkap: bagongMgaSangkap
+        })
     }
 
     useEffect(() => {

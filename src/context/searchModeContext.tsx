@@ -6,6 +6,8 @@ interface SearchModeTypes {
     setSearchMode: React.Dispatch<React.SetStateAction<string>>;
     search: string;
     setSearch: React.Dispatch<React.SetStateAction<string>>;
+    suggestionSearch: string;
+    setSuggestionSearch: React.Dispatch<React.SetStateAction<string>>;
     mgaSangkapNaMeronKa: string[];
     setMgaSangkapNaMeronKa: React.Dispatch<React.SetStateAction<string[]>>;
     ginamitNaSangkap: string[];
@@ -21,6 +23,8 @@ const defaultValue = {
     setSearchMode: () => {},
     search: "",
     setSearch: () => {},
+    suggestionSearch: "",
+    setSuggestionSearch: () => {},
     mgaSangkapNaMeronKa: [],
     setMgaSangkapNaMeronKa: () => {},
     ginamitNaSangkap: [],
@@ -34,6 +38,7 @@ const SearchModeContext = createContext<SearchModeTypes>(defaultValue)
 export const SearchModeProvider = (({children}: Props) => {
     const [ searchMode, setSearchMode ] = useState<string>("")
     const [ search, setSearch ] = useState<string>("")
+    const [ suggestionSearch, setSuggestionSearch ] = useState<string>("")
     const [ mgaSangkapNaMeronKa, setMgaSangkapNaMeronKa ] = useState<string[]>([])
     const [ angUlamNaHinahanp, setAngUlamNaHinahanap ] = useState<string>("")
     const [ ginamitNaSangkap, setGinamitNaSangkap ] = useState<string[]>([])
@@ -45,6 +50,8 @@ export const SearchModeProvider = (({children}: Props) => {
                 setSearchMode,
                 search,
                 setSearch,
+                suggestionSearch,
+                setSuggestionSearch,
                 mgaSangkapNaMeronKa,
                 setMgaSangkapNaMeronKa,
                 ginamitNaSangkap,

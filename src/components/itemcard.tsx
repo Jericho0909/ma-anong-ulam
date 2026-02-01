@@ -1,15 +1,26 @@
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import SaveScrollPositionContext from "../context/saveScrollPositionContext";
 import type { UlamTypes } from "../types/model"
 import { useIntersectionObserver } from "@uidotdev/usehooks";
 import { motion } from "framer-motion";
 
 interface ItemCardProps {
     ulam: UlamTypes;
+    ulamRefs: React.RefObject<Record<string, HTMLDivElement | null>>
 }
 
-const ItemCard = ({ulam}: ItemCardProps) => {
+const ItemCard = ({ulam, ulamRefs}: ItemCardProps) => {
     const navigate = useNavigate()
+    const { saveId, 
+        retrieveId,
+        id, 
+        setId,
+        isScrollActive,
+        setIsScrollActive,
+    } = useContext(SaveScrollPositionContext)
+    const [searchParams] = useSearchParams()
     const [ imgLoaded, setImgLoaded ] = useState(false)
     const [ ref, entry ] = useIntersectionObserver({
         threshold: 0,
@@ -20,15 +31,64 @@ const ItemCard = ({ulam}: ItemCardProps) => {
     const isVisible = entry?.isIntersecting
 
     const toDetalyengUlam = (id: number, name: string): void => {
-        navigate(`/detalyengulam/${id}/${name}`)
+         navigate({
+            pathname: `/detalyengulam/${id}/${name}`,
+            search: searchParams.toString(),
+        })
     }
+
+    const scrollToUlam = (id:number): void => {
+        ulamRefs.current[String(id)]?.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+        })
+    }
+
+    useEffect(() => {
+        if (!isScrollActive) return
+
+        const savedId = retrieveId()
+        if (savedId < 0) return
+
+        scrollToUlam(savedId)
+
+        const timer = setTimeout(() => {
+            setIsScrollActive(false)
+        }, 400)
+
+        return () => clearTimeout(timer)
+     }, [isScrollActive])
+
+     useEffect(() => {
+        if (id < 0) return
+
+        const timer = setTimeout(() => {
+            setId(-1)
+        }, 2500)
+
+        return () => clearTimeout(timer)
+    }, [id])
+
     return (
         <div 
-            ref={ref}
-            className="group w-full h-[18rem] lg:h-[21.20rem] p-2 bg-white rounded-2xl overflow-hidden border border-black shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer"
-            onClick={() => toDetalyengUlam(ulam.id, ulam.name)}
+            ref={(el) => {
+                ulamRefs.current[String(ulam.id)] = el
+            }}
+            className={`group w-full h-[18rem] lg:h-[21.20rem] p-2 bg-white rounded-2xl overflow-hidden border border-black shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer
+                ${ulam.id === id
+                    ? "ulam-active"
+                    : ""
+                }
+            `}
+            onClick={() => {
+                toDetalyengUlam(ulam.id, ulam.name)
+                saveId(ulam.id)
+            }}
         >
-            <div className="relative w-full h-[15rem] lg:h-[18rem] overflow-hidden rounded-md mb-2 group">
+            <div 
+                ref={ref}
+                className="relative w-full h-[15rem] lg:h-[18rem] overflow-hidden rounded-md mb-2 group"
+            >
                 {!imgLoaded && (
                     <div className="absolute inset-0 animate-pulse bg-gray-300" />
                 )}
