@@ -1,7 +1,6 @@
 import { useContext, useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import FirebaseDatabaseContext from "../context/firebaseDatabaseContext";
-import ShowToast from "../components/showToast";
 import Header from "../components/header"
 import Main from "../components/main";
 import HanapUlam from "../components/mgaUlamPage/section/hanapUlam";
