@@ -16,6 +16,7 @@ import Textmarquee from "../components/detalyengUlamPage/section/textMarquee"
 import BackButton from "../components/backbutton"
 import SangkapImg from "../assets/images/sangkap.png"
 const DetalyeNgUlam = () => {
+    window.history.scrollRestoration = "manual";
     const navigate = useNavigate()
     const { pathname } = useLocation()
     const { id } = useParams()

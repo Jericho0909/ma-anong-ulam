@@ -61,7 +61,6 @@ const HanapUlam = ({ mgaUlam, ulamContainerRef }: HanapUlamProps ) => {
 
     useEffect(() => {
         if(debouncedSearchTerm !== ""){
-            console.log("1")
             const result = hanapinUlam(filterSearch)
             setMgaMinungkahingUlam(result)
         } 

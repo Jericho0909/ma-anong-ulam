@@ -51,14 +51,11 @@ const MgaUlam = ({ mgaUlam,  ulamContainerRef }: MgaUlamProps) => {
     }
 
     useEffect(() => {
-        console.log(`restUlam ${resetUlam}`)
-        console.log(`mayHinahanapNaUlam ${mayHinahanapNaUlam}`)
         setSearchParams(searchMode === "text" 
             ? { search: searchParams || ""}
             : {sangkap: parsedUSangkapt || []}
         )
         if(parsedUlamsList.length >=1 && angNaHanapNaUlam.length === 0 && !mayHinahanapNaUlam){
-            console.log("A")
             setUlam(parsedUlamsList)
             if(searchMode === "text"){
                 setSearch(searchParams || "")
@@ -77,23 +74,17 @@ const MgaUlam = ({ mgaUlam,  ulamContainerRef }: MgaUlamProps) => {
         }
 
         if(resetUlam){
-            console.log("B")
             hanldeDefaultUlams()
             return
         }
 
         if(mayHinahanapNaUlam){
-            console.log("C")
             setIsDefaultUlams(false)
             setUlam(angNaHanapNaUlam)
             return
         }
 
     }, [angNaHanapNaUlam, resetUlam, mayHinahanapNaUlam])
-
-    useEffect(() => {
-        console.log("nagrun ako")
-    }, [])
 
     return(
         <section 
