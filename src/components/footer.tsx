@@ -18,13 +18,13 @@ const Footer = () => {
             />
         </div>
 
-        <div className="text-center md:text-center md:flex-1">
+        <div className="flex items-center justify-center text-center md:text-center md:flex-1">
             <p className="font-cabin text-xs">
             © 2025 PlayPot. All rights reserved.
             </p>
         </div>
 
-        <div className="flex flex-col items-center md:items-end md:flex-1 gap-1">
+        <div className="flex flex-col items-center md:items-end md:flex-1 gap-1 w-auto">
             <div className="flex items-center gap-1">
             <Mail size={14} />
             <p className="font-cabin text-xs">

@@ -23,7 +23,7 @@ const DetalyeNgUlam = () => {
     const ulam = mgaUlam.data.find(ulam => ulam.id === Number(id))
 
     const handleBackToMgaUlam = (): void => {
-        navigate("/mga-ulam/")
+        navigate(-1)
     }
 
     useEffect(() => {

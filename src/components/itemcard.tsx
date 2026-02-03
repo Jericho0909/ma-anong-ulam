@@ -1,5 +1,4 @@
 import { useState, useContext, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import SaveScrollPositionContext from "../context/saveScrollPositionContext";
 import type { UlamTypes } from "../types/model"
@@ -20,7 +19,6 @@ const ItemCard = ({ulam, ulamRefs}: ItemCardProps) => {
         isScrollActive,
         setIsScrollActive,
     } = useContext(SaveScrollPositionContext)
-    const [searchParams] = useSearchParams()
     const [ imgLoaded, setImgLoaded ] = useState(false)
     const [ ref, entry ] = useIntersectionObserver({
         threshold: 0,
@@ -31,9 +29,8 @@ const ItemCard = ({ulam, ulamRefs}: ItemCardProps) => {
     const isVisible = entry?.isIntersecting
 
     const toDetalyengUlam = (id: number, name: string): void => {
-         navigate({
+        navigate({
             pathname: `/detalyengulam/${id}/${name}`,
-            search: searchParams.toString(),
         })
     }
 

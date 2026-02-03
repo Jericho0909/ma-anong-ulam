@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import type { DataList, UlamTypes } from "../../../types/model";
 
 interface TextMarqueeProps {
@@ -6,11 +7,18 @@ interface TextMarqueeProps {
 }
 
 const TextMarquee = ({ mgaUlam, mainSangkap }: TextMarqueeProps) => {
+    const navigate = useNavigate()
     const ulams = mgaUlam.data.filter(
         (item) => item.mainIngredient === mainSangkap
     )
 
-  if (ulams.length === 0) return null
+    const toDetalyengUlam = (id: number, name: string): void => {
+        navigate({
+            pathname: `/detalyengulam/${id}/${name}`,
+        })
+    }
+
+    if (ulams.length === 0) return null
 
   return (
     <section className="w-screen overflow-hidden mb-6">
@@ -26,16 +34,15 @@ const TextMarquee = ({ mgaUlam, mainSangkap }: TextMarqueeProps) => {
             </span>
         </p>
 
-        <div className="overflow-hidden">
+        <div className="overflow-hidden p-3 cursor-pointer ">
             <div className="marquee-smooth flex whitespace-nowrap">
                 {ulams.map((item) => (
                     <span
                         key={item.id}
                         className="mx-14 flex-shrink-0 text-FGulay
-                            text-[clamp(1.5rem,2vw,1.20rem)]
-                            font-quicksand font-bold
-                            [text-shadow:1px_1px_4px_rgba(0,0,0,0.5)] cursor-pointer"
-                        >
+                        text-[clamp(1.5rem,2vw,1.20rem)]font-quicksand font-bold [text-shadow:1px_1px_4px_rgba(0,0,0,0.5)] cursor-pointer"
+                        onClick={() => toDetalyengUlam(item.id, item.name)}
+                    >
                         {item.name}
                     </span>
                 ))}
