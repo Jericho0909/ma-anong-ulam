@@ -4,6 +4,7 @@
       "id": 1,
       "name": "Adobong Manok",
       "description": "Simpleng lutong bahay na paborito ng pamilya",
+      "mainIngredient": "manok",
       "ingredients": [
         "manok",
         "toyo",
@@ -18,6 +19,15 @@
       ],
       "difficulty": "madali",
       "cookTime": 45,
+      "steps": [
+        "Ihanda ang lahat ng sangkap.",
+        "Sa isang kaserola, ilagay ang manok, bawang, toyo, suka, paminta at dahon ng laurel.",
+        "Pakuluin sa katamtamang apoy nang mga 20 minuto.",
+        "Kapag lumambot na ang manok, hinaan ang apoy at hayaang magmantika.",
+        "Kung gusto, idagdag ang patatas at kaunting asukal.",
+        "Tikman at ayusin ang timpla kung kinakailangan.",
+        "Ihain habang mainit."
+      ],
       "image": "https://res.cloudinary.com/daxhmcpkq/image/upload/v1769147669/adobo_z0hzsp.webp"
     },
     {
@@ -41,8 +51,17 @@
         "okra",
         "siling haba"
       ],
-      "cookTime": 60,
       "difficulty": "madali",
+      "cookTime": 60,
+      "steps": [
+        "Pakuluan ang baboy sa kaserola hanggang lumambot.",
+        "Idagdag ang sibuyas at kamatis, at pakuluan ng ilang minuto.",
+        "Ilagay ang sampalok o sinigang mix para sa asim ng sabaw.",
+        "Idagdag ang labanos, sitaw, at iba pang gulay na gusto mo.",
+        "Timplahan ng asin at siling pangsigang ayon sa panlasa.",
+        "Kapag maluto na ang lahat ng sangkap, idagdag ang kangkong bago ihain.",
+        "Ihain habang mainit."
+      ],
       "image": "https://res.cloudinary.com/daxhmcpkq/image/upload/v1737003423/avjj4y5gdrqjysl17yuy.jpg"
     },
     {
@@ -66,8 +85,17 @@
         "malunggay",
         "siling haba"
       ],
-      "cookTime": 45,
       "difficulty": "madali",
+      "cookTime": 45,
+      "steps": [
+        "Sa kaserola, igisa ang bawang, sibuyas, at luya hanggang mabango.",
+        "Idagdag ang manok at lutuin hanggang medyo mag-brown.",
+        "Ibuhos ang tubig at pakuluan hanggang lumambot ang manok.",
+        "Ilagay ang papaya at patis, at pakuluan hanggang maluto ang papaya.",
+        "Timplahan ng asin ayon sa panlasa.",
+        "Bago ihain, idagdag ang dahon ng sili at optional na gulay tulad ng malunggay o sayote.",
+        "Ihain habang mainit."
+      ],
       "image": "https://res.cloudinary.com/daxhmcpkq/image/upload/v1744072588/glb0tsjia9xn4j2lomkl.jpg"
     },
     {
@@ -91,8 +119,17 @@
         "togue",
         "oyster sauce"
       ],
-      "cookTime": 30,
       "difficulty": "madali",
+      "cookTime": 30,
+      "steps": [
+        "Sa isang mangkok, haluin ang giniling na baboy, sibuyas, bawang, karot, itlog, asin, at paminta.",
+        "Opsyonal: idagdag ang spring onions, togue, o oyster sauce para sa dagdag na lasa.",
+        "Kumuha ng balat ng lumpia at lagyan ng tamang dami ng palaman sa gitna.",
+        "I-roll ang lumpia at i-seal ang dulo gamit ang tubig o itlog.",
+        "Sa kawali, painitin ang mantika at iprito ang lumpia hanggang maging golden brown at malutong.",
+        "Patuluin sa paper towel para maalis ang sobrang mantika.",
+        "Ihain habang mainit, kasama ang sawsawang suka o sweet chili sauce."
+      ],
       "image": "https://res.cloudinary.com/daxhmcpkq/image/upload/v1744076334/usdaw3ryx1x626hdtq77.jpg"
     },
     {
@@ -116,8 +153,19 @@
         "dahon ng laurel",
         "siling labuyo"
       ],
-      "cookTime": 50,
       "difficulty": "katamtaman",
+      "cookTime": 50,
+      "steps": [
+        "Ihanda at hiwain ang laman at lamang-loob ng baboy sa maliliit na piraso.",
+        "Sa isang kaserola, igisa ang bawang at sibuyas hanggang mabango.",
+        "Idagdag ang baboy at lutuin hanggang medyo mag-brown.",
+        "Ibuhos ang suka at pakuluan ng ilang minuto para mawala ang amoy ng dugo.",
+        "Ilagay ang dugo ng baboy habang hinahalo ng maayos upang hindi dumapo sa kaserola.",
+        "Idagdag ang siling haba, paminta, asin, at optional na luya o dahon ng laurel.",
+        "Pakuluin hanggang lumapot ang sabaw at maluto ang lahat ng sangkap.",
+        "Tikman at ayusin ang lasa bago ihain.",
+        "Ihain habang mainit, kadalasang kasama ang puting kanin."
+      ],
       "image": "https://res.cloudinary.com/daxhmcpkq/image/upload/v1744086940/vbbuucgytnuowwzy60n4.jpg"
     }
   ]

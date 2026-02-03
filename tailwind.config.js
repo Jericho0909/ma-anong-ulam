@@ -13,7 +13,7 @@ export default {
         cabin: ['"Cabin"', 'sans-serif'],
         quicksand: ['"Quicksand"', 'sans-serif'],
         figtree: ['"Figtree"', 'sans-serif']
-      }
+      },
     },
   },
   plugins: [

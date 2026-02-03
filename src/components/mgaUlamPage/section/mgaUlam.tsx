@@ -24,7 +24,7 @@ const MgaUlam = ({ mgaUlam,  ulamContainerRef }: MgaUlamProps) => {
         angUlamNaHinahanp,
         setAngUlamNaHinahanap,
         ginamitNaSangkap,
-        setGinamitNaSangkap
+        setGinamitNaSangkap,
     } = useContext(SearchModeContext)
     const [ searchParam, setSearchParams ] = useSearchParams()
     const [ ulam, setUlam ] = useState< UlamTypes[]>(mgaUlam.data)
@@ -51,11 +51,14 @@ const MgaUlam = ({ mgaUlam,  ulamContainerRef }: MgaUlamProps) => {
     }
 
     useEffect(() => {
+        console.log(`restUlam ${resetUlam}`)
+        console.log(`mayHinahanapNaUlam ${mayHinahanapNaUlam}`)
         setSearchParams(searchMode === "text" 
             ? { search: searchParams || ""}
             : {sangkap: parsedUSangkapt || []}
         )
         if(parsedUlamsList.length >=1 && angNaHanapNaUlam.length === 0 && !mayHinahanapNaUlam){
+            console.log("A")
             setUlam(parsedUlamsList)
             if(searchMode === "text"){
                 setSearch(searchParams || "")
@@ -74,11 +77,13 @@ const MgaUlam = ({ mgaUlam,  ulamContainerRef }: MgaUlamProps) => {
         }
 
         if(resetUlam){
+            console.log("B")
             hanldeDefaultUlams()
             return
         }
 
         if(mayHinahanapNaUlam){
+            console.log("C")
             setIsDefaultUlams(false)
             setUlam(angNaHanapNaUlam)
             return
@@ -86,17 +91,21 @@ const MgaUlam = ({ mgaUlam,  ulamContainerRef }: MgaUlamProps) => {
 
     }, [angNaHanapNaUlam, resetUlam, mayHinahanapNaUlam])
 
+    useEffect(() => {
+        console.log("nagrun ako")
+    }, [])
+
     return(
         <section 
             ref={ulamContainerRef}
-            className="w-full sm:w-[95%] lg:w-[90%] h-auto mt-[2rem] p-2 border-2 border-[#8B4513] rounded-md shadow-lg"
+            className="w-full sm:w-[95%] lg:w-[90%] h-auto my-[2rem] p-2 border-2 border-[#8B4513] rounded-md shadow-lg"
         >
             <h6 className="font-cabin text-[2.15rem] font-bold mb-2">
                 MGA ULAM
             </h6>
             {!isDefaultUlams && (
                 <div
-                    className="flex items-center justify-between px-2 py-1 w-[35%] mb-1"
+                    className="flex items-center justify-between px-2 py-1 w-full sm:w-[75%] md:w-[60%] lg:w-[45%] xl:w-[35%] mb-1"
                 >
                    <p className="text-xs italic truncate">
                         {searchMode === "text"

@@ -61,7 +61,6 @@ const HanapUlamSaSangkap = ({ mgaSangkap, mgaUlam, ulamContainerRef }: HanapUlam
     const handleTanggalSangkap = (index: number): void => {
         if(index === 0){
             setResetUlam(true)
-            sessionStorage.setItem("searchMode", "")
         }
         const bagongMgaSangkap = mgaSangkapNaMeronKa.filter((_, i) => i !== index)
         setMgaSangkapNaMeronKa(bagongMgaSangkap)

@@ -18,9 +18,11 @@ export interface UlamTypes {
     id: number;
     name: string;
     description: string;
+    mainIngredient: string;
     ingredients: string[];
     optionalIngredients: string[];
     cookTime: number;
     difficulty: string;
     image: string;
+    steps: string[];
 }

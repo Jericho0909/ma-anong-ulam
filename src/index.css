@@ -55,5 +55,49 @@ textarea {
     0 0 0 2px rgba(255, 183, 3, 0.25);
 }
 
+.marquee-smooth {
+  --end-x: -110%;
+  animation: marquee-smooth 20s linear infinite;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .marquee-smooth:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes marquee-smooth {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(var(--end-x))
+  }
+}
+
+@media (max-width: 820px) {
+  .marquee-smooth {
+    --end-x: -170%;
+  }
+}
+
+@media (max-width: 768px) {
+  .marquee-smooth {
+    --end-x: -145%;
+  }
+}
+
+@media (max-width: 640px) {
+  .marquee-smooth {
+    --end-x: -250%;
+  }
+}
+
+
+
+
+
+
+
 
 

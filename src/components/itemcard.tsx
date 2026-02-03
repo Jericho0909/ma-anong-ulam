@@ -74,7 +74,7 @@ const ItemCard = ({ulam, ulamRefs}: ItemCardProps) => {
             ref={(el) => {
                 ulamRefs.current[String(ulam.id)] = el
             }}
-            className={`group w-full h-[18rem] lg:h-[21.20rem] p-2 bg-white rounded-2xl overflow-hidden border border-black shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer
+            className={`group w-full h-[18rem] lg:h-[21.20rem] p-2 bg-white rounded-2xl overflow-hidden border border-black shadow-md transition-all duration-300 hover:shadow-lg hoverable:hover:-translate-y-1 cursor-pointer
                 ${ulam.id === id
                     ? "ulam-active"
                     : ""

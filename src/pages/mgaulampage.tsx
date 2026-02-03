@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import FirebaseDatabaseContext from "../context/firebaseDatabaseContext";
 import Header from "../components/header"
 import Main from "../components/main";
+import Footer from "../components/footer";
 import HanapUlam from "../components/mgaUlamPage/section/hanapUlam";
 import HanapUlamSaSangkap from "../components/mgaUlamPage/section/hanapUlamSaSangkap";
 import MgaUlam from "../components/mgaUlamPage/section/mgaUlam";
@@ -78,6 +79,7 @@ const MgaUlamPage = () => {
                     )
                 }
             </Main>
+            <Footer/>
         </>
     )
 }

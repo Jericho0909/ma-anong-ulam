@@ -4,9 +4,8 @@ import { ref, onValue } from "firebase/database";
 import { database } from "../firebase";
 
 interface FirebaseDatabaseContextType{
-    mgaUlam: DataList<UlamTypes>
+    mgaUlam: DataList<UlamTypes>;
     fetchError: boolean;
-
 }
 
 const defaultValue = {
