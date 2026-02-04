@@ -1,73 +1,64 @@
-# React + TypeScript + Vite
+## Ma Anong Ulam:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ma Anong Ulam is a web-based application built using React, TypeScript, and Tailwind CSS.
 
-Currently, two official plugins are available:
+Ma Anong Ulam is a website designed to help users discover what meals they can cook, inspired by the common question: “Ma, Anong Ulam?”
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The website acts as a food search engine, allowing users to search for dishes:
 
-## React Compiler
+By dish name (e.g., Adobong Manok)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+By main ingredient they have at home (e.g., chicken, fish, vegetables)
 
-## Expanding the ESLint configuration
+By ingredients they already have, so they can find recipes they can cook immediately
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Features:
+- Search by Dish Name – Users can type the name of a dish and get relevant results.
+- Search by Main Ingredient – Users can type the main ingredient they have (e.g., chicken, fish, vegetables) to find dishes they can cook.
+- Ingredient-based Search – Users can input multiple ingredients they have at home to see dishes they can make with what’s available.
+- Suggestion Container – Displays filtered suggestions as the user types, with a message when no results are found.
+- State Persistence – The last search and results are saved even when navigating back or refreshing the page.
+- Responsive Design – Works smoothly on both desktop and mobile devices.
+- User-friendly Interface – Clean layout, clear input placeholders, and easy-to-read results.
+- Clear Search Option – Users can reset the search to return to the default dish list.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Tech Stack:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Frontend: React, TypeScript, Tailwind CSS, Framer Motion
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Backend:  JSON Server / Firebase
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- Hosting:  Netlify
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Version Control:  Git + GitHub
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Future Improvements:
+
+- User Accounts / Favorites – Allow users to save favorite dishes or ingredients for faster access.
+- Filter & Sort Options – Filter by cuisine type, difficulty level, prep time, or dietary preferences.
+- Internationalization – Support multiple languages for broader accessibility.
+- Performance Optimizations – Optimize search and suggestion logic for faster results with larger datasets.
+
+## Clone the repository:
+
+git clone https://github.com/Jericho0909/ma-anong-ulam.git
+
+cd ma-anong-ulam
+
+## Install dependencies:
+
+npm install
+
+## Run the app:
+
+npm run dev
+
+## Demo:
+
+https://ma-anong-ulam.netlify.app/
+
+## Author:
+
+Developed by **Jericho Zara**  
+📧 Email: jerichozara.tmlcr@gmail.com  
+💻 GitHub: [Jericho0909](https://github.com/Jericho0909)
