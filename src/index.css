@@ -17,8 +17,7 @@ html, body {
   overflow-x: hidden;
 }
 
-input,
-textarea {
+.no-border {
   border: none;
   outline: none;
   box-shadow: none;

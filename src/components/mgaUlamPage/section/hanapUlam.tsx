@@ -39,7 +39,7 @@ const HanapUlam = ({ mgaUlam, ulamContainerRef }: HanapUlamProps ) => {
 
 
     const hanapinUlam = (hanap: string): UlamTypes[] => {
-        return mgaUlam.data.filter((ulam) => ulam.name.toLowerCase().includes(hanap))
+        return mgaUlam.data.filter((ulam) => ulam.name.toLowerCase().includes(hanap) || ulam.mainIngredient.toLowerCase().includes(hanap))
     }
 
     const handleHanap = (angHinahanap: string): void => {
@@ -136,7 +136,7 @@ const HanapUlam = ({ mgaUlam, ulamContainerRef }: HanapUlamProps ) => {
                                 setSearch(e.target.value)
                                 setSearchParams({ search: e.target.value })
                             }}
-                            className="font-figtree font-medium w-full border border-green-500 focus:border border-none"
+                            className="font-figtree font-medium w-full border border-green-500 focus:border border-none no-border"
                             onFocus={() => {
                                 setFocus(true)
                                 setIpakitaAngMinungkahingUlam(true)

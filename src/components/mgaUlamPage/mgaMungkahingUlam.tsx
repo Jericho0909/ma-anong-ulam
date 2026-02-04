@@ -28,7 +28,7 @@ const MgaMungkahingUlam = ({ mgaMinungkahingUlam, handleHanap, setIpakitaAngMinu
                     debouncedSearchTerm === ""
                     ? (
                         <p className="font-quicksand font-medium text-sm">
-                            Anong ulam gusto mo?
+                            Itype ang name o main sangkap ng ulam
                         </p>
                     )
                     : (

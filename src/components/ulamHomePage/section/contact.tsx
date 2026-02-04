@@ -63,7 +63,7 @@ const Contact = ({ setActiveSection }: ContactProps) => {
                         required
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="w-full border-2 p-1 font-figtree text-[clamp(0.90rem,2vw,1.05rem)] text-gray-800 placeholder:text-gray-400 outline-none transition duration-200 focus:border-green-600 focus:ring-2 focus:ring-green-200 rounded-lg mb-2"
+                        className="w-full border border-black p-1 font-figtree text-[clamp(0.90rem,2vw,1.05rem)] text-gray-800 placeholder:text-gray-400 outline-none transition duration-200 focus:border-green-600 focus:ring-2 focus:ring-green-200 rounded-lg mb-2"
                     />
                 </div>
                 <div className="w-full xl:w-[50%]">
@@ -73,7 +73,7 @@ const Contact = ({ setActiveSection }: ContactProps) => {
                         required
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
-                        className="w-full rounded-lg border px-3 py-2 text-[clamp(0.90rem,2vw,1.05rem)] text-gray-800 placeholder:text-gray-400 outline-none resize-none transition duration-200 focus:border-green-600 focus:ring-2 focus:ring-green-200"
+                        className="w-full rounded-lg border border-black px-3 py-2 text-[clamp(0.90rem,2vw,1.05rem)] text-gray-800 placeholder:text-gray-400 outline-none resize-none transition duration-200 focus:border-green-600 focus:ring-2 focus:ring-green-200"
                     >
 
                     </textarea>

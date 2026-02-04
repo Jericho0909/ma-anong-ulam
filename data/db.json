@@ -167,6 +167,389 @@
         "Ihain habang mainit, kadalasang kasama ang puting kanin."
       ],
       "image": "https://res.cloudinary.com/daxhmcpkq/image/upload/v1744086940/vbbuucgytnuowwzy60n4.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Menudo",
+      "description": "Klasikong lutong bahay na may baboy at tomato sauce",
+      "mainIngredient": "baboy",
+      "ingredients": [
+        "baboy",
+        "atay ng baboy",
+        "patatas",
+        "karot",
+        "sibuyas",
+        "bawang",
+        "tomato sauce",
+        "toyo",
+        "paminta"
+      ],
+      "optionalIngredients": [
+        "hotdog",
+        "green peas",
+        "raisins"
+      ],
+      "difficulty": "katamtaman",
+      "cookTime": 50,
+      "steps": [
+        "Ihanda at hiwain ang lahat ng sangkap.",
+        "Igisa ang bawang at sibuyas hanggang mabango.",
+        "Idagdag ang baboy at lutuin hanggang magkulay.",
+        "Ilagay ang atay at haluin ng ilang minuto.",
+        "Ibuhos ang tomato sauce at kaunting tubig, pakuluin hanggang lumambot ang karne.",
+        "Idagdag ang patatas at karot at lutuin hanggang malambot.",
+        "Timplahan ng toyo at paminta ayon sa panlasa.",
+        "Ihain habang mainit."
+      ],
+      "image": "https://res.cloudinary.com/daxhmcpkq/image/upload/v1770163571/menudo_g7p9e7.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Chicken Afritada",
+      "description": "Manok na niluto sa tomato sauce na may gulay",
+      "mainIngredient": "manok",
+      "ingredients": [
+        "manok",
+        "patatas",
+        "karot",
+        "sibuyas",
+        "bawang",
+        "tomato sauce",
+        "paminta",
+        "asin"
+      ],
+      "optionalIngredients": [
+        "bell pepper",
+        "green peas"
+      ],
+      "difficulty": "madali",
+      "cookTime": 45,
+      "steps": [
+        "Igisa ang bawang at sibuyas hanggang mabango.",
+        "Idagdag ang manok at lutuin hanggang magkulay.",
+        "Ibuhos ang tomato sauce at kaunting tubig.",
+        "Pakuluin hanggang lumambot ang manok.",
+        "Idagdag ang patatas at karot at lutuin hanggang malambot.",
+        "Timplahan ng asin at paminta.",
+        "Ihain habang mainit."
+      ],
+      "image": "https://res.cloudinary.com/daxhmcpkq/image/upload/v1770163647/afritadang_manok_z1bi0e.webp"
+    },
+    {
+      "id": 8,
+      "name": "Pinakbet",
+      "description": "Ginisang gulay na may bagoong",
+      "mainIngredient": "gulay",
+      "ingredients": [
+        "kalabasa",
+        "talong",
+        "sitaw",
+        "okra",
+        "ampalaya",
+        "sibuyas",
+        "bawang",
+        "bagoong"
+      ],
+      "optionalIngredients": [
+        "baboy",
+        "hipon"
+      ],
+      "difficulty": "madali",
+      "cookTime": 30,
+      "steps": [
+        "Igisa ang bawang at sibuyas hanggang mabango.",
+        "Idagdag ang bagoong at haluin.",
+        "Ilagay ang mga gulay at kaunting tubig.",
+        "Takpan at lutuin hanggang malambot ang gulay.",
+        "Tikman at ayusin ang timpla.",
+        "Ihain habang mainit."
+      ],
+      "image": "https://res.cloudinary.com/daxhmcpkq/image/upload/v1770164033/pinakbet_hbqbpu.webp"
+    },
+    {
+      "id": 9,
+      "name": "Paksiw na Bangus",
+      "description": "Isdang niluto sa suka at bawang",
+      "mainIngredient": "isda",
+      "ingredients": [
+        "bangus",
+        "suka",
+        "bawang",
+        "luya",
+        "sibuyas",
+        "paminta",
+        "asin"
+      ],
+      "optionalIngredients": [
+        "talong",
+        "siling haba"
+      ],
+      "difficulty": "madali",
+      "cookTime": 30,
+      "steps": [
+        "Ilagay ang bangus sa kaserola.",
+        "Idagdag ang suka, bawang, luya at sibuyas.",
+        "Pakuluin nang hindi hinahalo.",
+        "Timplahan ng asin at paminta.",
+        "Ilagay ang talong kung gusto.",
+        "Lutuin hanggang maluto ang isda.",
+        "Ihain habang mainit."
+      ],
+      "image": "https://res.cloudinary.com/daxhmcpkq/image/upload/v1770164134/paksiw-bangus_omkpgv.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Bistek Tagalog",
+      "description": "Baboy o baka na may toyo at calamansi",
+      "mainIngredient": "baka",
+      "ingredients": [
+        "baka",
+        "toyo",
+        "calamansi",
+        "sibuyas",
+        "bawang",
+        "paminta"
+      ],
+      "optionalIngredients": [
+        "butter"
+      ],
+      "difficulty": "katamtaman",
+      "cookTime": 40,
+      "steps": [
+        "I-marinate ang baka sa toyo at calamansi.",
+        "Igisa ang bawang at sibuyas.",
+        "Idagdag ang karne at lutuin hanggang malambot.",
+        "Ibuhos ang marinade at pakuluin.",
+        "Timplahan ng paminta.",
+        "Ihain habang mainit."
+      ],
+      "image": "https://res.cloudinary.com/daxhmcpkq/image/upload/v1770164306/bistek_tagalog_wmozqt.webp"
+    },
+    {
+      "id": 11,
+      "name": "Ginisang Monggo",
+      "description": "Masustansyang lutong bahay na gawa sa munggo",
+      "mainIngredient": "gulay",
+      "ingredients": [
+        "monggo",
+        "sibuyas",
+        "bawang",
+        "kamatis",
+        "malunggay",
+        "tubig",
+        "asin"
+      ],
+      "optionalIngredients": [
+        "tinapa",
+        "baboy",
+        "chicharon"
+      ],
+      "difficulty": "madali",
+      "cookTime": 40,
+      "steps": [
+        "Pakuluan ang monggo hanggang lumambot.",
+        "Igisa ang bawang, sibuyas at kamatis hanggang mabango.",
+        "Idagdag ang nilagang monggo at haluin.",
+        "Pakuluin hanggang lumapot ang sabaw.",
+        "Timplahan ng asin ayon sa panlasa.",
+        "Idagdag ang malunggay bago patayin ang apoy.",
+        "Ihain habang mainit."
+      ],
+      "image": "https://res.cloudinary.com/daxhmcpkq/image/upload/v1770164490/gginisang_monggo_kjngpz.jpg"
+    },
+    {
+      "id": 12,
+      "name": "Chopsuey",
+      "description": "Halo-halong gulay na madaling lutuin at masustansya",
+      "mainIngredient": "gulay",
+      "ingredients": [
+        "repolyo",
+        "karot",
+        "cauliflower",
+        "sayote",
+        "snow peas",
+        "sibuyas",
+        "bawang",
+        "tubig",
+        "asin"
+      ],
+      "optionalIngredients": [
+        "baboy",
+        "manok",
+        "hipon"
+      ],
+      "difficulty": "madali",
+      "cookTime": 30,
+      "steps": [
+        "Igisa ang bawang at sibuyas hanggang mabango.",
+        "Idagdag ang mga gulay at haluin.",
+        "Lagyan ng kaunting tubig at takpan.",
+        "Lutuin hanggang malambot pero hindi overcooked ang gulay.",
+        "Timplahan ng asin ayon sa panlasa.",
+        "Ihain habang mainit."
+      ],
+      "image": "https://res.cloudinary.com/daxhmcpkq/image/upload/v1770164603/chopsuey_wczm5l.webp"
+    },
+    {
+      "id": 13,
+      "name": "Crispy Pata",
+      "description": "Malutong na pritong pata ng baboy na pang-handaan",
+      "mainIngredient": "baboy",
+      "ingredients": [
+        "pata ng baboy",
+        "bawang",
+        "sibuyas",
+        "paminta",
+        "asin",
+        "tubig",
+        "mantika"
+      ],
+      "optionalIngredients": [
+        "bay leaf",
+        "siling labuyo"
+      ],
+      "difficulty": "mahirap",
+      "cookTime": 120,
+      "steps": [
+        "Pakuluan ang pata ng baboy sa tubig na may bawang, sibuyas, asin at paminta hanggang lumambot.",
+        "Patuyuin nang mabuti ang pata bago iprito.",
+        "Painitin ang mantika sa malalim na kawali.",
+        "Dahan-dahang iprito ang pata hanggang maging golden brown at malutong.",
+        "Iangat at patuluin ang sobrang mantika.",
+        "Hiwain at ihain kasama ang sawsawang toyo o suka."
+      ],
+      "image": "https://res.cloudinary.com/daxhmcpkq/image/upload/v1770165115/crispy_pata_hpkqyz.jpg"
+    },
+    {
+      "id": 14,
+      "name": "Inasal na Bangus",
+      "description": "Inihaw na bangus na may atsuwete at calamansi",
+      "mainIngredient": "isda",
+      "ingredients": [
+        "bangus",
+        "bawang",
+        "luya",
+        "calamansi",
+        "atsuwete oil",
+        "asin",
+        "paminta"
+      ],
+      "optionalIngredients": [
+        "butter",
+        "siling labuyo"
+      ],
+      "difficulty": "mahirap",
+      "cookTime": 50,
+      "steps": [
+        "Linisin at hiwain ang bangus.",
+        "I-marinate ang isda sa bawang, luya, calamansi, asin at paminta.",
+        "Pahiran ng atsuwete oil ang isda.",
+        "I-ihaw sa katamtamang init hanggang maluto ang magkabilang panig.",
+        "Pahiran ng butter habang iniihaw kung gusto.",
+        "Ihain habang mainit."
+      ],
+      "image": "https://res.cloudinary.com/daxhmcpkq/image/upload/v1770165218/Inasal_na_Bangus_z7h15f.jpg"
+    },
+    {
+      "id": 15,
+      "name": "Beef Kare-Kare",
+      "description": "Nilagang baka na may mani at bagoong",
+      "mainIngredient": "baka",
+      "ingredients": [
+        "baka",
+        "peanut butter",
+        "sibuyas",
+        "bawang",
+        "tuhod ng baka",
+        "talong",
+        "pechay",
+        "sitaw",
+        "tubig",
+        "asin"
+      ],
+      "optionalIngredients": [
+        "ox tripe",
+        "gata ng niyog"
+      ],
+      "difficulty": "mahirap",
+      "cookTime": 120,
+      "steps": [
+        "Pakuluan ang baka hanggang lumambot.",
+        "Igisa ang bawang at sibuyas.",
+        "Idagdag ang peanut butter at haluing mabuti.",
+        "Ibuhos ang sabaw ng baka at pakuluin.",
+        "Ilagay ang mga gulay at lutuin hanggang maluto.",
+        "Timplahan ng asin ayon sa panlasa.",
+        "Ihain kasama ang bagoong."
+      ],
+      "image": "https://res.cloudinary.com/daxhmcpkq/image/upload/v1770165482/beef-kare-kare_vvkbmh.jpg"
+    },
+    {
+      "id": 16,
+      "name": "Pancit Canton",
+      "description": "Pancit na mabilis lutuin na pang-araw-araw",
+      "mainIngredient": "noodles",
+      "ingredients": [
+        "pancit canton noodles",
+        "baboy",
+        "karot",
+        "repolyo",
+        "sibuyas",
+        "bawang",
+        "toyo",
+        "tubig",
+        "paminta"
+      ],
+      "optionalIngredients": [
+        "hipon",
+        "manok"
+      ],
+      "difficulty": "madali",
+      "cookTime": 25,
+      "steps": [
+        "Igisa ang bawang at sibuyas.",
+        "Idagdag ang baboy at lutuin hanggang magkulay.",
+        "Ilagay ang mga gulay at haluin.",
+        "Ibuhos ang toyo at tubig.",
+        "Idagdag ang noodles at lutuin hanggang lumambot.",
+        "Timplahan ng paminta.",
+        "Ihain habang mainit."
+      ],
+      "image": "https://res.cloudinary.com/daxhmcpkq/image/upload/v1770165647/pancit_canton_vxi7lh.webp"
+    },
+    {
+      "id": 17,
+      "name": "Escabeche na Lapu-Lapu",
+      "description": "Piniritong isda na may matamis-asim na sarsa",
+      "mainIngredient": "isda",
+      "ingredients": [
+        "lapu-lapu",
+        "sibuyas",
+        "bawang",
+        "bell pepper",
+        "asukal",
+        "suka",
+        "ketchup",
+        "asin",
+        "paminta",
+        "mantika"
+      ],
+      "optionalIngredients": [
+        "pineapple chunks",
+        "luya"
+      ],
+      "difficulty": "katamtaman",
+      "cookTime": 45,
+      "steps": [
+        "Iprito ang lapu-lapu hanggang golden brown at itabi.",
+        "Igisa ang bawang at sibuyas.",
+        "Idagdag ang bell pepper at haluin.",
+        "Ilagay ang suka, ketchup at asukal at pakuluin.",
+        "Timplahan ng asin at paminta.",
+        "Ibuhos ang sarsa sa ibabaw ng isda.",
+        "Ihain habang mainit."
+      ],
+      "image": "https://res.cloudinary.com/daxhmcpkq/image/upload/v1770165888/Escabeche_na_Lapu-Lapu_bv5mk4.jpg"
     }
   ]
 }
