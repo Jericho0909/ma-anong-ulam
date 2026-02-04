@@ -26,7 +26,7 @@ const MgaUlam = ({ mgaUlam,  ulamContainerRef }: MgaUlamProps) => {
         ginamitNaSangkap,
         setGinamitNaSangkap,
     } = useContext(SearchModeContext)
-    const [ searchParam, setSearchParams ] = useSearchParams()
+    const [ , setSearchParams ] = useSearchParams()
     const [ ulam, setUlam ] = useState< UlamTypes[]>(mgaUlam.data)
     const [ isDefaultUlams, setIsDefaultUlams ] = useState<boolean>(true)
     const ulamRefs = useRef<Record<string, HTMLDivElement | null>>({})
@@ -34,7 +34,7 @@ const MgaUlam = ({ mgaUlam,  ulamContainerRef }: MgaUlamProps) => {
     const searchParams = sessionStorage.getItem("lastSearch")
     const sangkapParams = sessionStorage.getItem("lastSangkap")
     const lastUlamsList = sessionStorage.getItem("ulamList")
-    const parsedUSangkapt = sangkapParams ? JSON.parse(sangkapParams) : []
+    const parsedUSangkap = sangkapParams ? JSON.parse(sangkapParams) : []
     const parsedUlamsList = lastUlamsList ? JSON.parse(lastUlamsList) : []
 
     const hanldeDefaultUlams = () => {
@@ -53,7 +53,7 @@ const MgaUlam = ({ mgaUlam,  ulamContainerRef }: MgaUlamProps) => {
     useEffect(() => {
         setSearchParams(searchMode === "text" 
             ? { search: searchParams || ""}
-            : {sangkap: parsedUSangkapt || []}
+            : {sangkap: parsedUSangkap || []}
         )
         if(parsedUlamsList.length >=1 && angNaHanapNaUlam.length === 0 && !mayHinahanapNaUlam){
             setUlam(parsedUlamsList)
@@ -64,9 +64,8 @@ const MgaUlam = ({ mgaUlam,  ulamContainerRef }: MgaUlamProps) => {
             }
 
             if(searchMode === "sangkap"){
-                const sangkap = searchParam.getAll("sangkap")
-                setMgaSangkapNaMeronKa(sangkap)
-                setGinamitNaSangkap(sangkap)
+                setMgaSangkapNaMeronKa(parsedUSangkap)
+                setGinamitNaSangkap(parsedUSangkap)
 
             }
             setResetUlam(false)
