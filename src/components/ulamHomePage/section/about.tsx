@@ -44,7 +44,7 @@ const About = ({ setActiveSection }: AboutProps) => {
                 </span> 
                 base sa mga sangkap na meron sila.
             </p>
-            <p className="font-figtree font-semibold text-[clamp(1rem,0.90vw,1.10rem05 text-gray-700 mb-4">
+            <p className="font-figtree font-semibold text-[clamp(0.90rem,2vw,1.05rem)] text-gray-700">
                 Sa app na ito, puwedeng mag-input ang user ng kanilang sariling
                 <span className="font-semibold text-gray-900 pl-1">ingredients</span>, at
                 <span className="font-extrabold text-gray-900 px-1">
@@ -56,10 +56,10 @@ const About = ({ setActiveSection }: AboutProps) => {
                 Layunin ng proyektong ito na:
             </p>
             <ul className="space-y-2 list-disc pl-5">
-                <li className="font-figtree font-semibold text-[clamp(0.95rem,2vw,1.05rem)]">
+                <li className="font-figtree font-semibold text-[clamp(0.90rem,2vw,1.05rem)] text-gray-700">
                    Gawing mas madali ang meal planning: hindi na kailangang mag-isip ng kung ano ang lulutuin kada araw.
                 </li>
-                <li className="font-figtree font-semibold text-[clamp(0.95rem,2vw,1.05rem)]">
+                <li className="font-figtree font-semibold text-[clamp(0.90rem,2vw,1.05rem)] text-gray-700">
                    Maiwasan ang pagsasayang ng pagkain: gamit ang ingredients na mayroon, puwede pa ring makagawa ng masarap na ulam.
                 </li>
             </ul>
