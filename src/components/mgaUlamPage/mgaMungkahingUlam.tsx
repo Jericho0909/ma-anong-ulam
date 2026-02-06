@@ -1,3 +1,4 @@
+import { useRef, useEffect } from "react";
 import type { SetURLSearchParams } from "react-router-dom";
 import type { UlamTypes } from "../../types/model"
 interface MgaMungkahingUlamProps {
@@ -11,6 +12,17 @@ interface MgaMungkahingUlamProps {
 }
 
 const MgaMungkahingUlam = ({ mgaMinungkahingUlam, handleHanap, setIpakitaAngMinungkahingUlam, activeIndex, setSearch, debouncedSearchTerm, setSearchParams }: MgaMungkahingUlamProps) => {
+    const itemRefs = useRef<(HTMLLIElement | null)[]>([])
+
+    useEffect(() => {
+        if (activeIndex < 0) return
+
+        itemRefs.current[activeIndex]?.scrollIntoView({
+            block: "nearest",
+            behavior: "smooth"
+        })
+    }, [activeIndex])
+
 
     return(
         <div 
@@ -41,6 +53,7 @@ const MgaMungkahingUlam = ({ mgaMinungkahingUlam, handleHanap, setIpakitaAngMinu
                     <ul className="w-full h-full">
                         {mgaMinungkahingUlam.map((ulam, index) => (
                             <li
+                                ref={(el) => {itemRefs.current[index] = el}}
                                 key={index}
                                 className={`px-4 py-2 text-sm cursor-pointer
                                 transition-all duration-15 hoverable:hover:bg-green-100 hoverable:hover:translate-x-1
