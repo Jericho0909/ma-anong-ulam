@@ -43,7 +43,7 @@ const Home = ({ setActiveSection }: HomeProps) => {
             initial={{ opacity: 0, y: 50 }}
             animate={hasAnimated ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="grid grid-cols-3 lg:grid-cols-4 gap-1 w-[100vw] place-items-center mb-[10rem] scroll-mt-32 h-[85svh] sm:h-[86svh] md:h-[86svh] lg:h-[84svh] xl:h-[85svh] overflow-hidden"
+            className="grid grid-cols-3 lg:grid-cols-4 gap-1 w-[100vw] place-items-center mb-[10rem] scroll-mt-0 h-[85svh] sm:h-[86svh] md:h-[86svh] lg:h-[84svh] xl:h-[85svh] overflow-hidden"
         >  
             {Ulams.map((ulam, index) => (
                 <p 

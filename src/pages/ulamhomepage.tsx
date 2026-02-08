@@ -42,7 +42,10 @@ const UlamHomePage = () => {
                     className={`text-FGulay font-bold font-cabin text-[clamp(1rem,2vw,1.1rem)] cursor-pointer transition-all duration-200
                         ${activeSection === "home" ? "text-black scale-110" : "hoverable:hover:text-black hover:scale-105"}
                     `}
-                    onClick={() => scrollToSection("home")}
+                    onClick={() => {
+                        scrollToSection("home")
+                        setIsDropDownOpen(false)
+                    }}
                 >
                     HOME
                 </li>
@@ -50,7 +53,10 @@ const UlamHomePage = () => {
                     className={`text-FGulay font-bold font-cabin text-[clamp(1rem,2vw,1.1rem)] cursor-pointer transition-all duration-200
                         ${activeSection === "about" ? "text-black scale-110" : "hoverable:hover:text-black hover:scale-105"}
                     `}
-                    onClick={() => scrollToSection("about")}
+                    onClick={() => {
+                        scrollToSection("about")
+                        setIsDropDownOpen(false)
+                    }}
                 >
                     ABOUT
                 </li>
@@ -58,7 +64,10 @@ const UlamHomePage = () => {
                     className={`text-FGulay font-bold font-cabin text-[clamp(1rem,2vw,1.1rem)] cursor-pointer transition-all duration-200
                         ${activeSection === "contact" ? "text-black scale-110" : "hoverable:hover:text-black hover:scale-105"}
                     `}
-                    onClick={() => scrollToSection("contact")}
+                    onClick={() => {
+                        scrollToSection("contact")
+                        setIsDropDownOpen(false)
+                    }}
                 >
                     CONTACT
                 </li>
@@ -66,15 +75,16 @@ const UlamHomePage = () => {
                     className={`text-FGulay font-bold font-cabin text-[clamp(1rem,2vw,1.1rem)] cursor-pointer transition-all duration-200
                         ${activeSection === "mgaUlam" ? "text-black scale-110" : "hoverable:hover:text-black hover:scale-105"}
                     `}
-                    onClick={() => scrollToSection("mgaUlam")}
+                    onClick={() => {
+                        scrollToSection("mgaUlam")
+                        setIsDropDownOpen(false)
+                    }}
                 >
                     MGA ULAM
                 </li>
             </ul>
         )
     }
-
-    const toggleDropDown = (): void => setIsDropDownOpen(prev => !prev)
 
     useEffect(() => {
         function handleClickOutside(event: MouseEvent) {
@@ -122,7 +132,7 @@ const UlamHomePage = () => {
                                 className={`w-auto h-auto p-1
                                     ${isDropDownOpen ? "border-2 border-green-500 rounded" : ""}
                                 `}
-                                onClick={() => toggleDropDown()}
+                                onClick={() => setIsDropDownOpen(true)}
                             >
                                 <SquareMenu size={20} color="black"/>
                             </button>
